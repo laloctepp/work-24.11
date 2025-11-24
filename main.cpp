@@ -8,7 +8,7 @@ struct Planar {
 };
 
 Planar * make (std::istream& is);
-Planar * make(size_t pl)
+Planar * make(size_t pl);
 void draw(Planar * pl);
 void free_planars(Planar ** pls, size_t k);
 Planar * mostLeft (Planar ** pls, size_t k);
@@ -33,3 +33,25 @@ int main()
   //draw(left)
   //free planars(psl, k);
 }
+
+
+Planar * make(size_t pl) {
+  switch (pl)
+  {
+    default:
+      throw std::logic_error("bad id");
+  }
+  return nullptr;
+}
+
+void free_planars(Planar ** pls, size_t k) {
+  for (size_t i = 0; i < k; ++i) {
+    delete pls[i];
+  }
+}
+
+void draw(Planar * pl) {
+  std::cout << pl->x();
+  std::cout << " ";
+  std::cout << pl->y() << "\n";
+} 
