@@ -23,6 +23,17 @@ struct Point:Planar {
     int data[2];
 };
 
+struct Vector:Planar {
+  virtual int x() const;
+  virtual int y() const;
+  virtual int abs_sqr() const;
+  Vector(Point a, Point b);
+  virtual ~Vector() = default;
+  private:
+    Point a;
+    Point b;
+};
+
 int main()
 {
   Planar * pls[10] = {};
@@ -83,5 +94,17 @@ int Point::y() const {
 }
 
 int Point::abs_sqr() const {
+  return x() * x() + y() * y();
+}
+
+int Vector::x() const {
+  return b.x() -  a.x();
+}
+
+int Vector::y() const {
+  return b.y() - a.y();
+}
+
+int Vector::abs_sqr() const {
   return x() * x() + y() * y();
 }
