@@ -29,7 +29,7 @@ int main()
   size_t k = 0;
   for (size_t i = 0; i < 10; ++i) {
     try {
-      pls[k] = make(i%2)
+      pls[k] = make(i%2);
     }
     catch (...) {
     free_planars(pls, k);
@@ -46,7 +46,7 @@ int main()
 
 
 Planar * make(size_t id) {
-  Planar * r = nuulptr;
+  Planar * r = nullptr;
   switch (id) {
     case 0:
       r = new Point(0,0);
@@ -70,8 +70,8 @@ void draw(Planar * pl) {
 }
 
 Point::Point(int xx, int yy):
-  Planar();
-  data = {xx, yy}
+  Planar(),
+  data{xx, yy}
 {}
 
 int Point::x() const {
