@@ -42,3 +42,18 @@ Planar * make (std::istream& is) {
   }
   throw std::logic_error("bad cmd");
 }
+
+Planar ** mostleft (Planar ** pls, size_t k) {
+  if (!k) {
+    return pls;
+  }
+  planar ** res = pls;
+  while (--k) {
+    int next_x = (*(++pls)) -> x();
+    int curr_x = (*res) -> x();
+    if (next_x < curr_x) {
+      res = pls;
+    }
+  }
+  return res;
+}
